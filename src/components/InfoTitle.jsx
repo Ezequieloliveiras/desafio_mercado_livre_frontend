@@ -4,15 +4,13 @@ import {
     Box
 } from '@mui/material'
 
+import { StyledBox } from '../styles/StyleInfoTitle'
+
+// essa função é responsável pelas informaçõoes de erros a serem exibidas e loading (carregando...)
 function InfoTitle({ loading, error, products }) {
 
     return (
-        <Box sx={{
-            width: "600px",
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'column',
-        }}>
+        <StyledBox>
 
             <Box mt={2}
                 display="flex"
@@ -52,7 +50,7 @@ function InfoTitle({ loading, error, products }) {
                 )}
             </Box>
 
-        </Box>
+        </StyledBox>
     )
 }
 

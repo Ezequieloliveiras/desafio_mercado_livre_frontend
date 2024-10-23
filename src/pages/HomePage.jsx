@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { Typography } from '@mui/material'
 import { searchProducts } from '../api/api.js'
 
-import FormSubmit from '../components/Form.js'
-import CardProduct from '../components/CardProducts.js'
-import InfoTitle from '../components/InfoTitle.js'
+import FormSubmit from '../components/Form.jsx'
+import CardProduct from '../components/CardProducts.jsx'
+import InfoTitle from '../components/InfoTitle.jsx'
 
+// componente Pai que renderiza os componentes filhos na página inicial
 function App() {
 
   const [products, setProducts] = useState([])
@@ -16,6 +17,7 @@ function App() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
+  // função de pesquisa do produto
   const handleSearch = async (event) => {
     event.preventDefault()
     setError('')
@@ -25,7 +27,6 @@ function App() {
     try {
       const results = await searchProducts(termoPesquisado, precoMinimo, precoMaximo, condicao)
       if (results.error) {
-        // Exibe o erro retornado da API
         setError(results.error);
       } else {
         setProducts(results);
@@ -37,6 +38,8 @@ function App() {
       setLoading(false)
     }
   }
+
+  // os componentes repassam os valores de estado através de props para os componenentes
 
   return (
     <main

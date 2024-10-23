@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// api que solicita para o back-end de acordo com os parametros enviados na requisição.
 const searchProducts = async (termoPesquisado, precoMinimo, precoMaximo, condicao) => {
   try {
     const response = await axios.get('http://localhost:3001/api/dados', {

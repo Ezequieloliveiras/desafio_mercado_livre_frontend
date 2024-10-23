@@ -12,7 +12,7 @@ import {
     StyledTypographyPrice,
 } from '../styles/StyleProductDetails'
 
-// componente de que renderiza a lista de produtos que é recebida via api
+// componente que renderiza o produto em uma página única e com link de ver no meli
 function ProductDetail() {
     const location = useLocation()
     const { product } = location.state || {}

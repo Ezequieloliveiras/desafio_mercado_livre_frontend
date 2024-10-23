@@ -6,10 +6,11 @@ import {
     FormControl,
     InputLabel,
     Select,
-    Box
 } from '@mui/material'
 
+import { StyledBox } from '../styles/StyleForm'
 
+// formulario de preechimento da pesquisa na pagina inicial
 function Form({
     termoPesquisado,
     setTermoPesquisado,
@@ -22,11 +23,7 @@ function Form({
     handleSearch
 }) {
     return (
-        <Box sx={{
-            padding: '20px',
-            maxWidth: '1200px',
-            margin: '0 auto'
-        }}>
+        <StyledBox>
             <Grid2
                 container
                 spacing={3}
@@ -94,7 +91,7 @@ function Form({
                 </Grid2>
 
             </Grid2>
-        </Box>
+        </StyledBox>
     )
 }
 
