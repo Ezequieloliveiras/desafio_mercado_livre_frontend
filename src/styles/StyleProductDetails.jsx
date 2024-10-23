@@ -4,7 +4,7 @@ import { Box, Card, CardMedia, CardContent, Typography } from '@mui/material'
 const Container = styled(Box)`
 && {
     width: 100%;
-    height: 100%;
+    height: auto;
     background: rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@ const Container = styled(Box)`
 const StyledBox = styled(Box)`
 && {
     display: flex;
-    height: 100%;
+    height: auto;
     flex-direction: column;
     
     @media (min-width: 768px) {
@@ -33,8 +33,8 @@ const StyledLink = styled.a`
 
 const StyledCard = styled(Card)`
 && {
-    width: 800px;
-    height: 500px;
+    width: auto;
+    height: auto;
     margin: 20px auto 0;
     padding: 20px
 }
@@ -53,10 +53,9 @@ const ImageContainer = styled(Box)`
 
 const ProductImage = styled(CardMedia)`
 && {
-    max-height: 300px; 
+    max-height: auto; 
     max-width: 300px; 
-    width: 300px; 
-    height: 300px; /
+    width: 300px;
     object-fit: contain; 
 }
 `;
@@ -75,6 +74,7 @@ const StyledTypography = styled(Typography)`
   font-size: 1rem;
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 10px;
+
 }
 `;
 

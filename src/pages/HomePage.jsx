@@ -3,7 +3,7 @@ import { Typography } from '@mui/material'
 import { searchProducts } from '../api/api.js'
 
 import FormSubmit from '../components/Form.jsx'
-import CardProduct from '../components/CardProducts.jsx'
+import CardProducts from '../components/CardProducts.jsx'
 import InfoTitle from '../components/InfoTitle.jsx'
 
 // componente Pai que renderiza os componentes filhos na página inicial
@@ -70,7 +70,7 @@ function App() {
       {
         Array.isArray(products) && products.length > 0 ? (
           products.map(item => (
-            <CardProduct
+            <CardProducts
               item={item}
               key={item.id}
             />
