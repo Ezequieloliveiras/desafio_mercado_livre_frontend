@@ -1,4 +1,4 @@
-import { Grid2, Container } from '@mui/material'
+import { Grid2, Container, Card } from '@mui/material'
 import styled from 'styled-components'
 
 const StyledContainer = styled(Container)`
@@ -10,7 +10,7 @@ const StyledContainer = styled(Container)`
 }
 `
 
-const StyledCard = styled.div`
+const StyledCard = styled(Card)`
   display: flex;
   flex-direction: column;
   height: 100%;
