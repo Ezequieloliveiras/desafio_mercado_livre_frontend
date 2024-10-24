@@ -1,46 +1,42 @@
-import styled from 'styled-components';
+import { Grid2, Container } from '@mui/material'
+import styled from 'styled-components'
+
+const StyledContainer = styled(Container)`
+&& {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100%;
+}
+`
 
 const StyledCard = styled.div`
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 800px;
   display: flex;
-  align-items: center;
-  background-color: #fff;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    width: 90%;
-  }
-`;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+`
 
 const StyledCardMedia = styled.img`
-  object-fit: cover;
-  width: 150px;
-  height: 150px;
-  border-radius: 8px;
-
-  @media (max-width: 768px) {
-    width: 100px;
-    height: 100px;
-  }
-`;
+  height: auto;
+  width: 100%;
+`
 
 const StyledCardContent = styled.div`
-  margin-left: 20px;
-  flex: 1;
+  flex-grow: 1;
+  padding: 16px;
+`
 
-  @media (max-width: 768px) {
-    margin-left: 0;
-    text-align: center;
-  }
-`;
+const StyledGrid = styled(Grid2)`
+  display: flex;
+  justify-content: center;
+`
 
 export {
+  StyledContainer,
   StyledCard,
   StyledCardMedia,
-  StyledCardContent
+  StyledCardContent,
+  StyledGrid
 }

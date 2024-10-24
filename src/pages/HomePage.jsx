@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { searchProducts } from '../api/api.js'
 
 import FormSubmit from '../components/FormSubmit.jsx'
-import CardProducts from '../components/CardProducts.jsx'
 import InfoTitle from '../components/InfoTitle.jsx'
+import CardProducts from '../components/CardProducts.jsx'
 
 // componente Pai que renderiza os componentes filhos na página inicial
 function App() {
@@ -26,9 +26,9 @@ function App() {
     try {
       const results = await searchProducts(termoPesquisado, precoMinimo, precoMaximo, condicao)
       if (results.error) {
-        setError(results.error);
+        setError(results.error)
       } else {
-        setProducts(results);
+        setProducts(results)
       }
 
     } catch (err) {
@@ -49,34 +49,27 @@ function App() {
         alignItems: 'center',
         flexDirection: 'column'
       }}>
+      <div style={{ backgroundColor: 'yellow', width: '100%', display: 'flex' }}>
 
-      <FormSubmit
-        handleSearch={handleSearch}
-        setTermoPesquisado={setTermoPesquisado}
-        setPrecoMinimo={setPrecoMinimo}
-        setPrecoMaximo={setPrecoMaximo}
-        setCondicao={setCondicao}
-        condicao={condicao}
-      />
+        <FormSubmit
+          handleSearch={handleSearch}
+          setTermoPesquisado={setTermoPesquisado}
+          setPrecoMinimo={setPrecoMinimo}
+          setPrecoMaximo={setPrecoMaximo}
+          setCondicao={setCondicao}
+          condicao={condicao}
+        />
+
+      </div>
 
       <InfoTitle
         loading={loading}
         error={error}
         products={products}
       />
-
-      {
-        Array.isArray(products) && products.length > 0 ? (
-          products.map(item => (
-            <CardProducts
-              item={item}
-              key={item.id}
-            />
-          ))
-        ) : (
-          <></>
-        )
-      }
+      <CardProducts
+        products={products}
+      />
 
     </main>
   )

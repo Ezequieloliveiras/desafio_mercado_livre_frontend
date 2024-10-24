@@ -37,7 +37,7 @@ function Form({
                 }}
             >
 
-                <Grid2 xs={12} md={4}>
+                <Grid2 xs={12} md={4} sx={{backgroundColor:'#fff'}}>
                     <TextField
                         label="Termo de pesquisa"
                         value={termoPesquisado}
@@ -48,7 +48,7 @@ function Form({
                     />
                 </Grid2>
 
-                <Grid2 xs={12} md={4} sx={{ minWidth: 200 }}>
+                <Grid2 xs={12} md={4} width="210px" sx={{backgroundColor:'#fff'}}>
                     <FormControl fullWidth variant="outlined">
                         <InputLabel>Condição</InputLabel>
                         <Select
@@ -65,7 +65,7 @@ function Form({
                     </FormControl>
                 </Grid2>
 
-                <Grid2 xs={12} md={3}>
+                <Grid2 xs={12} md={3} sx={{backgroundColor:'#fff'}}>
                     <TextField
                         label="Preço Mínimo"
                         type="number"
@@ -76,7 +76,7 @@ function Form({
                     />
                 </Grid2>
 
-                <Grid2 xs={12} md={3}>
+                <Grid2 xs={12} md={3} sx={{backgroundColor:'#fff'}}>
                     <TextField
                         label="Preço Máximo"
                         type="number"

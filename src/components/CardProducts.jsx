@@ -1,38 +1,52 @@
-import { Typography } from '@mui/material'
+import React from 'react'
+import { Typography, Button, Grid2 } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-
 import {
+    StyledContainer,
     StyledCard,
     StyledCardMedia,
-    StyledCardContent
-
+    StyledCardContent,
+    StyledGrid
 } from '../styles/StyleCardProducts'
 
-// essa função é responsável por exibir os cards de cada produto na pagina inicial
-const CardProduct = ({ item }) => {
-  const navigate = useNavigate()
 
-  const handleProductClick = () => {
-    navigate(`/product/${item.id}`, { state: { product: item } })
-  }
 
-  return (
-    <StyledCard key={item.id} onClick={handleProductClick}>
-      <StyledCardMedia
-        src={item.thumbnail}
-        alt={item.title}
-      />
-      <StyledCardContent>
-        <Typography sx={{ color: 'grey' }} variant="p">{item.id}</Typography>
-        <Typography sx={{ margin: '5px 0px' }} variant="h6">{item.title}</Typography>
-        <Typography sx={{ margin: '5px 0px' }} variant="body1">R$ {item.price}</Typography>
-        <Typography variant="body2" color='grey'>
-          {item.condition === 'used' ? 'Usado' : '' || item.condition === 'new' ? 'Novo' : ''}
-        </Typography>
-        <Typography variant="body2">{item.description}</Typography>
-      </StyledCardContent>
-    </StyledCard>
-  )
+const ProductGrid = ({ products }) => {
+    const navigate = useNavigate()
+
+    const handleProductClick = (product) => {
+        navigate(`/product/${product.id}`, { state: { product } })
+    }
+
+    return (
+        <StyledContainer>
+            <Typography variant="h4" align="center" gutterBottom>
+                Produtos à Venda
+            </Typography>
+
+            <StyledGrid container spacing={2} alignItems="stretch">
+                {products.map((product) => (
+                    <Grid2 xs={12} sm={6} md={4} key={product.id} sx={{ width: '300px' }}>
+                        <StyledCard onClick={() => handleProductClick(product)}>
+                            <StyledCardMedia src={product.thumbnail} alt={product.title} />
+                            <StyledCardContent>
+                                <Typography variant="h5" component="div">
+                                    {product.title}
+                                </Typography>
+                            </StyledCardContent>
+                            <Typography variant="h5" component="div" textAlign="center" color="green">
+                                R$ {product.price}
+                            </Typography>
+
+                            <Button size="small" sx={{ marginBottom: 1 }} onClick={() => handleProductClick(product)}>
+                                Ver Produto
+                            </Button>
+                        </StyledCard>
+                    </Grid2>
+                ))}
+            </StyledGrid>
+        </StyledContainer>
+    )
 }
 
-export default CardProduct
+export default ProductGrid
