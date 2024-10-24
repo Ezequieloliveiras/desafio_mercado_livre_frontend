@@ -47,6 +47,7 @@ function InfoTitle({ loading, error, products }) {
                      textAlign: {
                        xs: 'center',
                        sm: 'left',
+                       margin:'20px'
                      },
                    }}
                  >

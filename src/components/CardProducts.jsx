@@ -46,14 +46,11 @@ const ProductGrid = ({ products }) => {
                 sx={{
                     backgroundColor: products.length > 0 ? 'rgba(0, 0, 0, 0.1)' : '',
                     padding: '10px 0px',
-                    width:'100%'
+                    width: '100%'
                 }}
-
             >
-
-
                 {products.map((product, index) => (
-                    
+
                     <Grid2 xs={12} sm={6} md={4} key={product.id} width={300}  >
                         <StyledCard onClick={() => handleProductClick(product)} >
                             <StyledCardMedia
@@ -63,7 +60,7 @@ const ProductGrid = ({ products }) => {
 
                             />
                             <StyledCardContent>
-                                <Typography variant="h5" component="div">
+                                <Typography variant="h6" component="div">
                                     {product.title}
                                 </Typography>
                             </StyledCardContent>

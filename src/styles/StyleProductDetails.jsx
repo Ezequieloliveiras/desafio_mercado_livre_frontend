@@ -47,7 +47,6 @@ const StyledCard = styled(Card)`
 const ImageContainer = styled(Box)`
   && {
     width: 50%;
-    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
