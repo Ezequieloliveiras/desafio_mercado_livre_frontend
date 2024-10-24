@@ -25,7 +25,7 @@ function Item({ image, title }) {
                 style={{
                     width: '100%', // Largura total do container
                     maxHeight: '500px', // Altura máxima
-                    objectFit: 'cover' // Garante que a imagem seja ajustada sem cortar
+                    objectFit: 'contain' // Garante que a imagem seja ajustada sem cortar
                 }}
             />
         </Paper>
@@ -64,7 +64,7 @@ function ProductDetail() {
                         <Carousel
                             sx={{
                                 width: '100%',
-                                height: '200px', // Limita a altura do carrossel para telas maiores
+                                height: '100%', // Limita a altura do carrossel para telas maiores
                             }}
                             indicators={false} // Ativar indicadores
                             navButtonsAlwaysVisible={true} // Botões de navegação sempre visíveis
