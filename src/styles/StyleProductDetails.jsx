@@ -38,8 +38,8 @@ const StyledCard = styled(Card)`
     margin: 20px auto 0;
     padding: 20px;
      @media (max-width: 768px) {
-      height: 100%;
-      width: 350px;
+      height: auto;
+      width: 330px;
     }
 }
 `;

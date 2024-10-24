@@ -25,7 +25,7 @@ function Item({ image, title }) {
                 style={{
                     width: '100%', // Largura total do container
                     maxHeight: '500px', // Altura máxima
-                    objectFit: 'contain' // Garante que a imagem seja ajustada sem cortar
+                    objectFit: 'cover' // Garante que a imagem seja ajustada sem cortar
                 }}
             />
         </Paper>
@@ -64,14 +64,14 @@ function ProductDetail() {
                         <Carousel
                             sx={{
                                 width: '100%',
-                                height: 'auto', // Limita a altura do carrossel para telas maiores
+                                height: '200px', // Limita a altura do carrossel para telas maiores
                             }}
                             indicators={false} // Ativar indicadores
                             navButtonsAlwaysVisible={true} // Botões de navegação sempre visíveis
                             autoPlay={false} // Desativa reprodução automática
                         >
                             {imagesProduct.map((img, index) => (
-                                <Item key={index} image={img.url} title={product.title} />
+                                <Item key={index} image={img.url} title={product.title}/>
                             ))}
                         </Carousel>
                     </ImageContainer>
