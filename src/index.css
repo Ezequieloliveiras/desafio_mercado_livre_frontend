@@ -2,7 +2,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Para incluir padding e border dentro da largura e altura */
 }
 
 /* Remove margin e padding do html e body */

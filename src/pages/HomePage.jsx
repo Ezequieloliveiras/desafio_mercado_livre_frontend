@@ -47,7 +47,7 @@ function App() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column'
+        flexDirection: 'column',
       }}>
       <div style={{ backgroundColor: 'yellow', width: '100%', display: 'flex' }}>
 

@@ -7,6 +7,7 @@ const StyledContainer = styled(Container)`
     justify-content: center;
     flex-direction: column;
     max-width: 100%;
+    padding: 0px;
 }
 `
 
@@ -19,9 +20,13 @@ const StyledCard = styled(Card)`
 `
 
 const StyledCardMedia = styled.img`
-  height: auto;
-  width: 100%;
+  width: auto;
+  height: 300px;
+  object-fit: cover;   
+  display: block;
+  margin: 0 auto;
 `
+
 
 const StyledCardContent = styled.div`
   flex-grow: 1;
