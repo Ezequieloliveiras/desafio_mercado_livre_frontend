@@ -28,6 +28,13 @@ function Form({
                 container
                 spacing={3}
                 alignItems="center"
+                padding={2}
+                sx={{
+                    flexDirection: {
+                        xs: 'column',
+                        sm: 'row',    // Aplica 'row' a partir de telas pequenas (tablet e acima)
+                    },
+                }}
             >
 
                 <Grid2 xs={12} md={4}>

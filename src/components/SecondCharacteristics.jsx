@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { StyledTypography, } from '../styles/StyleProductDetails'
+import { StyledTypography, StyledBox } from '../styles/StyleSecondCharacteristics'
 
 function SecondCharacteristics() {
     const location = useLocation()
@@ -32,7 +32,7 @@ function SecondCharacteristics() {
     }
 
     return (
-        <Box sx={{ mt: 2, padding: '20px', borderTop: '1px solid rgba(0, 0, 0, 0.2)' }}>
+        <StyledBox>
             <Typography variant='h6' marginBottom="10px">Todas as características</Typography>
             <Box
                 sx={{
@@ -67,7 +67,7 @@ function SecondCharacteristics() {
             >
                 {expandedAttributes ? 'Ver menos' : 'Ver mais'}
             </Typography>
-        </Box>
+        </StyledBox>
     )
 }
 

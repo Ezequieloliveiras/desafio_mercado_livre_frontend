@@ -7,7 +7,7 @@ import {
     StyledCardContent,
     StyledTypography,
     StyledTypographyPrice,
-} from '../styles/StyleProductDetails'
+} from '../styles/StylePrimaryCharacteristics'
 
 function PrimaryCharacteristics() {
     const location = useLocation()

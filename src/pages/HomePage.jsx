@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import { Typography } from '@mui/material'
 import { searchProducts } from '../api/api.js'
 
-import FormSubmit from '../components/Form.jsx'
+import FormSubmit from '../components/FormSubmit.jsx'
 import CardProducts from '../components/CardProducts.jsx'
 import InfoTitle from '../components/InfoTitle.jsx'
 
@@ -50,7 +49,6 @@ function App() {
         alignItems: 'center',
         flexDirection: 'column'
       }}>
-      <Typography sx={{ margin: '50px 0px' }} variant='h4'>Produtos Mercado Livre</Typography>
 
       <FormSubmit
         handleSearch={handleSearch}

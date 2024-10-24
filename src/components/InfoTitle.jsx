@@ -41,12 +41,17 @@ function InfoTitle({ loading, error, products }) {
 
             <Box >
                 {products.length > 0 && (
-                    <Typography
-                        variant="body1"
-                        textAlign="left"
-                    >
-                        Produtos Encontrados
-                    </Typography>
+                   <Typography
+                   variant="body1"
+                   sx={{
+                     textAlign: {
+                       xs: 'center',
+                       sm: 'left',
+                     },
+                   }}
+                 >
+                   Produtos Encontrados
+                 </Typography>
                 )}
             </Box>
 

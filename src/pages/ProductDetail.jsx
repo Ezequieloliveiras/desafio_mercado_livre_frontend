@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import axios from 'axios'
+import { useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import {
     Container,
     StyledBox,
@@ -8,13 +8,13 @@ import {
     StyledCard,
     ImageContainer,
     StyledTypographyTitle
-} from '../styles/StyleProductDetails';
-import { Paper } from '@mui/material';
-import Carousel from 'react-material-ui-carousel';
+} from '../styles/StyleProductDetails'
+import { Paper } from '@mui/material'
+import Carousel from 'react-material-ui-carousel'
 
-import PrimaryCharacteristics from './PrimaryCharacteristics';
-import SecondCharacteristics from './SecondCharacteristics';
-import Description from './Description';
+import PrimaryCharacteristics from '../components/PrimaryCharacteristics'
+import SecondCharacteristics from '../components/SecondCharacteristics'
+import Description from '../components/Description'
 
 function Item({ image, title }) {
     return (
@@ -31,33 +31,33 @@ function Item({ image, title }) {
                 }}
             />
         </Paper>
-    );
+    )
 }
 
 function ProductDetail() {
-    const location = useLocation();
-    const { product } = location.state || {};
-    const [base, setBase] = useState('');
-    const [loading, setLoading] = useState(true); // Estado de carregamento
+    const location = useLocation()
+    const { product } = location.state || {}
+    const [base, setBase] = useState('')
+    const [loading, setLoading] = useState(true) // Estado de carregamento
 
-    const imagesProduct = base?.pictures || [];
+    const imagesProduct = base?.pictures || []
 
     useEffect(() => {
         const fetchDescription = async () => {
             try {
-                const baseUrl = await axios.get(`https://api.mercadolibre.com/items/${product.id}`);
-                setBase(baseUrl.data);
-                setLoading(false); // Define como carregado
+                const baseUrl = await axios.get(`https://api.mercadolibre.com/items/${product.id}`)
+                setBase(baseUrl.data)
+                setLoading(false) // Define como carregado
             } catch (error) {
-                console.error('Erro ao buscar a descrição do produto:', error);
-                setLoading(false);
+                console.error('Erro ao buscar a descrição do produto:', error)
+                setLoading(false)
             }
-        };
+        }
 
         if (product?.id) {
-            fetchDescription();
+            fetchDescription()
         }
-    }, [product]);
+    }, [product])
 
     return (
         <Container>
@@ -86,7 +86,7 @@ function ProductDetail() {
                 <SecondCharacteristics />
             </StyledCard>
         </Container>
-    );
+    )
 }
 
-export default ProductDetail;
+export default ProductDetail

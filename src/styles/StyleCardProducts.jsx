@@ -1,34 +1,46 @@
 import styled from 'styled-components';
 
 const StyledCard = styled.div`
-  box-shadow: 0px 0px 5px 0px grey;
-  width: 600px;
-  margin: 20px;
-  padding: 10px;
-  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  cursor: pointer;
+  background-color: #fff;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 90%;
+  }
 `;
 
 const StyledCardMedia = styled.img`
-  object-fit: contain;
-  width: 200px;
-  height: 100px;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 const StyledCardContent = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: left;
-  flex-direction: column;
-  align-items: left;
-  text-align: left;
+  margin-left: 20px;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    text-align: center;
+  }
 `;
 
 export {
-    StyledCard,
-    StyledCardMedia,
-    StyledCardContent
+  StyledCard,
+  StyledCardMedia,
+  StyledCardContent
 }

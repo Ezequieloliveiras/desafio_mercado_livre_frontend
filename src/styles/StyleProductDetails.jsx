@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Box, Card, CardMedia, CardContent, Typography } from '@mui/material'
+import styled from "styled-components"
+import { Box, Card,Typography } from '@mui/material'
 
 const Container = styled(Box)`
 && {
@@ -58,34 +58,6 @@ const ImageContainer = styled(Box)`
   }
 `;
 
-
-const ProductImage = styled(CardMedia)`
-&& {
-    margin-top:10px;
-    max-height: auto; 
-    max-width: 300px; 
-    object-fit: contain; 
-}
-`;
-
-const StyledCardContent = styled(CardContent)`
-&& {
-    flex: 1;
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-    padding-Left: 40px;
-    align-items: 'center';
-}
-`;
-
-const StyledTypography = styled(Typography)`
-&& {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.6);
-  margin-bottom: 10px;
-
-}
-`;
-
 const StyledTypographyTitle = styled(Typography)`
 && {
   font-size: 1.2rem; 
@@ -93,24 +65,11 @@ const StyledTypographyTitle = styled(Typography)`
 }
 `;
 
-const StyledTypographyPrice = styled(Typography)`
-&& {
-  margin-top: 29px; 
-  margin-bottom:10px;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 1.25rem; 
-}
-`;
-
 export {
-    Container,
-    StyledBox,
-    StyledLink,
-    StyledCard,
-    ImageContainer,
-    ProductImage,
-    StyledCardContent,
-    StyledTypography,
-    StyledTypographyTitle,
-    StyledTypographyPrice
+  Container,
+  StyledBox,
+  StyledLink,
+  StyledCard,
+  ImageContainer,
+  StyledTypographyTitle
 }

@@ -4,11 +4,10 @@ import { Box} from '@mui/material'
 const StyledBox = styled(Box)`
 && {
   padding: 20px,
-  max-width: 1200px,
-  margin: 0 auto
+  max-width: 100%,
+  margin: 0 auto;
 }
 `;
-
 
 export {
     StyledBox,
