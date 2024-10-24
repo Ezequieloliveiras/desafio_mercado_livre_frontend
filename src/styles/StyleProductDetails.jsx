@@ -42,11 +42,10 @@ const StyledCard = styled(Card)`
 
 const ImageContainer = styled(Box)`
 && {
-    width: 50%;
+    width: auto;
     padding: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 `;
@@ -55,7 +54,6 @@ const ProductImage = styled(CardMedia)`
 && {
     max-height: auto; 
     max-width: 300px; 
-    width: 300px;
     object-fit: contain; 
 }
 `;
