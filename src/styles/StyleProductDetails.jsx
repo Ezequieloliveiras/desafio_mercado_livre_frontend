@@ -36,7 +36,11 @@ const StyledCard = styled(Card)`
     width: auto;
     height: auto;
     margin: 20px auto 0;
-    padding: 20px
+    padding: 20px;
+     @media (max-width: 768px) {
+      height: 100%;
+      width: 300px;
+    }
 }
 `;
 

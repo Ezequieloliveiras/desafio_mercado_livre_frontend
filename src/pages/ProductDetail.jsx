@@ -1,6 +1,6 @@
-import axios from 'axios'
-import { useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import {
     Container,
     StyledBox,
@@ -8,66 +8,65 @@ import {
     StyledCard,
     ImageContainer,
     StyledTypographyTitle
-} from '../styles/StyleProductDetails'
-import { Paper } from '@mui/material'
-import Carousel from 'react-material-ui-carousel'
+} from '../styles/StyleProductDetails';
+import { Paper } from '@mui/material';
+import Carousel from 'react-material-ui-carousel';
 
-import PrimaryCharacteristics from './PrimaryCharacteristics'
-import SecondCharacteristics from './SecondCharacteristics'
-import Description from './Description'
+import PrimaryCharacteristics from './PrimaryCharacteristics';
+import SecondCharacteristics from './SecondCharacteristics';
+import Description from './Description';
 
 function Item({ image, title }) {
     return (
-        <Paper elevation={3} style={{ padding: '20px', textAlign: 'center', height: '500px' }}>
+        <Paper elevation={3} style={{  textAlign: 'center', height: '500px' }}>
             <img
                 src={image}
                 alt={title}
                 style={{
                     width: '100%', // Largura total do container
                     maxHeight: '500px', // Altura máxima
-                    height: 'auto', // Altura automática para manter a proporção
                     objectFit: 'contain' // Garante que a imagem seja ajustada sem cortar
                 }}
             />
         </Paper>
-    )
+    );
 }
 
 function ProductDetail() {
-    const location = useLocation()
-    const { product } = location.state || {}
-    const [base, setBase] = useState('')
+    const location = useLocation();
+    const { product } = location.state || {};
+    const [base, setBase] = useState('');
 
-    const imagesProduct = base?.pictures || []
+    const imagesProduct = base?.pictures || [];
 
     useEffect(() => {
         const fetchDescription = async () => {
             try {
-                const baseUrl = await axios.get(`https://api.mercadolibre.com/items/${product.id}`)
-                setBase(baseUrl.data)
+                const baseUrl = await axios.get(`https://api.mercadolibre.com/items/${product.id}`);
+                setBase(baseUrl.data);
             } catch (error) {
-                console.error('Erro ao buscar a descrição do produto:', error)
+                console.error('Erro ao buscar a descrição do produto:', error);
             }
-        }
+        };
 
         if (product?.id) {
-            fetchDescription()
+            fetchDescription();
         }
-    }, [product])
+    }, [product]);
 
     return (
         <Container>
             <StyledLink href="/">Página Inicial</StyledLink>
             <StyledCard>
-                <StyledBox>
-                    <ImageContainer>
+                <StyledBox >
+                    <ImageContainer >
                         <StyledTypographyTitle>{product.title}</StyledTypographyTitle>
                         <Carousel
                             sx={{
                                 width: '100%',
-                                height: '500px', // Limita a altura do carrossel para telas maiores
+                                height: 'auto', // Limita a altura do carrossel para telas maiores
                             }}
-                            indicators={true} // Ativar indicadores
+                            indicators={false} // Ativar indicadores
                             navButtonsAlwaysVisible={true} // Botões de navegação sempre visíveis
                             autoPlay={false} // Desativa reprodução automática
                         >
@@ -82,7 +81,7 @@ function ProductDetail() {
                 <SecondCharacteristics />
             </StyledCard>
         </Container>
-    )
+    );
 }
 
-export default ProductDetail
+export default ProductDetail;
