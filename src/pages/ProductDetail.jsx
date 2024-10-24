@@ -7,28 +7,44 @@ import {
     StyledLink,
     StyledCard,
     ImageContainer,
-    ProductImage,
-    StyledTypographyTitle,
+    StyledTypographyTitle
 } from '../styles/StyleProductDetails'
+import { Paper } from '@mui/material'
+import Carousel from 'react-material-ui-carousel'
 
 import PrimaryCharacteristics from './PrimaryCharacteristics'
 import SecondCharacteristics from './SecondCharacteristics'
 import Description from './Description'
 
+function Item({ image, title }) {
+    return (
+        <Paper elevation={3} style={{ padding: '20px', textAlign: 'center', height: '500px' }}>
+            <img
+                src={image}
+                alt={title}
+                style={{
+                    width: '100%', // Largura total do container
+                    maxHeight: '500px', // Altura máxima
+                    height: 'auto', // Altura automática para manter a proporção
+                    objectFit: 'contain' // Garante que a imagem seja ajustada sem cortar
+                }}
+            />
+        </Paper>
+    )
+}
+
 function ProductDetail() {
     const location = useLocation()
     const { product } = location.state || {}
-    console.log('produtos', product)
     const [base, setBase] = useState('')
 
-    const imageProduct = base?.pictures?.[0]?.url // Verificação de segurança para evitar erros de acesso
+    const imagesProduct = base?.pictures || []
 
     useEffect(() => {
         const fetchDescription = async () => {
             try {
                 const baseUrl = await axios.get(`https://api.mercadolibre.com/items/${product.id}`)
                 setBase(baseUrl.data)
-
             } catch (error) {
                 console.error('Erro ao buscar a descrição do produto:', error)
             }
@@ -45,17 +61,22 @@ function ProductDetail() {
             <StyledCard>
                 <StyledBox>
                     <ImageContainer>
-                        <StyledTypographyTitle>
-                            {product.title}
-                        </StyledTypographyTitle>
-
-                        <ProductImage
-                            component="img"
-                            image={imageProduct}
-                            alt={product.title}
-                        />
+                        <StyledTypographyTitle>{product.title}</StyledTypographyTitle>
+                        <Carousel
+                            sx={{
+                                width: '100%',
+                                height: '500px', // Limita a altura do carrossel para telas maiores
+                            }}
+                            indicators={true} // Ativar indicadores
+                            navButtonsAlwaysVisible={true} // Botões de navegação sempre visíveis
+                            autoPlay={false} // Desativa reprodução automática
+                        >
+                            {imagesProduct.map((img, index) => (
+                                <Item key={index} image={img.url} title={product.title} />
+                            ))}
+                        </Carousel>
                     </ImageContainer>
-                        <PrimaryCharacteristics />
+                    <PrimaryCharacteristics />
                 </StyledBox>
                 <Description />
                 <SecondCharacteristics />

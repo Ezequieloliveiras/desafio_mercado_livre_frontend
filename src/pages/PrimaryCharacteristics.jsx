@@ -54,6 +54,8 @@ function PrimaryCharacteristics() {
             ) : (
                 <StyledTypography>Nenhum atributo encontrado.</StyledTypography>
             )}
+
+            <a href={product.permalink}>Ver no mercado livre</a>
         </StyledCardContent>
     )
 }

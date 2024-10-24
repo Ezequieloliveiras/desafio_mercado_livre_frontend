@@ -41,17 +41,23 @@ const StyledCard = styled(Card)`
 `;
 
 const ImageContainer = styled(Box)`
-&& {
-    width: auto;
+  && {
+    width: 50%;
     padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+
+    @media (max-width: 768px) {
+      width: 100%; // Atinge 100% da largura quando a tela for menor ou igual a 768px
+    }
+  }
 `;
+
 
 const ProductImage = styled(CardMedia)`
 && {
+    margin-top:10px;
     max-height: auto; 
     max-width: 300px; 
     object-fit: contain; 
