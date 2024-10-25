@@ -9,7 +9,7 @@ import {
     ImageContainer,
     StyledTypographyTitle
 } from '../styles/StyleProductDetails'
-import { Paper } from '@mui/material'
+import { Paper, Box } from '@mui/material'
 import Carousel from 'react-material-ui-carousel'
 
 import PrimaryCharacteristics from '../components/PrimaryCharacteristics'
@@ -74,19 +74,31 @@ function ProductDetail() {
                 <StyledBox>
                     <ImageContainer>
                         <StyledTypographyTitle>{base.title || 'Título não disponível'}</StyledTypographyTitle> {/* Usando base.title */}
-                        <Carousel
-                            sx={{
-                                width: '100%',
-                                height: 'auto', // Altura automática após carregado
-                            }}
-                            indicators={false} // Remove os indicadores
-                            navButtonsAlwaysVisible={true} // Botões de navegação sempre visíveis
-                            autoPlay={false} // Desativa reprodução automática
-                        >
-                            {imagesProduct.map((img, index) => (
-                                <Item key={index} image={img.url} title={base.title || 'Imagem do Produto'} />
-                            ))}
-                        </Carousel>
+                        <Box sx={{ position: 'relative', width: '100%', height: 'auto' }}>
+                            <Carousel
+                                sx={{
+                                    width: '100%',
+                                    height: 'auto', // Altura automática após carregado
+                                }}
+                                indicators={true} // Exibe os indicadores
+                                navButtonsAlwaysVisible={false}
+                                autoPlay={false} // Desativa reprodução automática
+                                indicatorContainerProps={{
+                                    sx: {
+                                        position: 'absolute',
+                                        bottom: '10px', 
+                                        left: '50%',
+                                        transform: 'translateX(-50%)', // Centraliza os indicadores
+                                        zIndex: 10, // fica em cima da imagem
+                                    }
+                                }}
+                            >
+                                {imagesProduct.map((img, index) => (
+                                    <Item key={index} image={img.url} title={base.title || 'Imagem do Produto'} />
+                                ))}
+                            </Carousel>
+                        </Box>
+
                     </ImageContainer>
                     <PrimaryCharacteristics />
                 </StyledBox>

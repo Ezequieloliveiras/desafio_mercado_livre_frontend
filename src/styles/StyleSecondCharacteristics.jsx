@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material'
 const StyledBox = styled(Box)`
 && {
   mt: 2; 
-  padding: '20px';
+  padding: 20px;
   borderTop: '1px solid rgba(0, 0, 0, 0.2)';
 }
 `;
