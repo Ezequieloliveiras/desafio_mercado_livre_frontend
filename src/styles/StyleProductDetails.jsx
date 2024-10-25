@@ -61,8 +61,8 @@ const ImageContainer = styled(Box)`
 
 const StyledTypographyTitle = styled(Typography)`
 && {
-margin-top:50px;
-margin-bottom:20px;
+
+  margin: auto 0;
   font-size: 1.2rem; 
 }
 `;
