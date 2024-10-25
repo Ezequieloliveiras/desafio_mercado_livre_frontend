@@ -8,7 +8,7 @@ import {
     Select,
 } from '@mui/material'
 
-import { StyledBox } from '../styles/StyleForm'
+import { StyledBox } from '../../styles/StyleForm'
 
 // formulario de preechimento da pesquisa na pagina inicial
 function Form({

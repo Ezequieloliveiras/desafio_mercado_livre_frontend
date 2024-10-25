@@ -7,7 +7,7 @@ import {
     StyledCardMedia,
     StyledCardContent,
     StyledGrid
-} from '../styles/StyleCardProducts'
+} from '../../styles/StyleCardProducts'
 import axios from 'axios'
 
 const ProductGrid = ({ products }) => {
@@ -38,7 +38,7 @@ const ProductGrid = ({ products }) => {
     }
 
     return (
-        <StyledContainer>
+        <StyledContainer >
             <StyledGrid
                 container
                 spacing={2}
@@ -51,7 +51,16 @@ const ProductGrid = ({ products }) => {
             >
                 {products.map((product, index) => (
 
-                    <Grid2 xs={12} sm={6} md={4} key={product.id} width={300}  >
+                    <Grid2 xs={12} sm={6} md={4} key={product.id}
+                    sx={{
+                        width: {
+                          xs: "400px",  // Estilo para telas menores que 600px
+                          sm: "300px",  // Estilo para telas entre 600px e 960px
+                          md: "300px",  // Estilo para telas entre 960px e 1280px
+                        }
+                      }}
+                       
+                    >
                         <StyledCard onClick={() => handleProductClick(product)} >
                             <StyledCardMedia
                                 component="img"

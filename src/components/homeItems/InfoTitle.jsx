@@ -4,7 +4,7 @@ import {
     Box
 } from '@mui/material'
 
-import { StyledBox } from '../styles/StyleInfoTitle'
+import { StyledBox } from '../../styles/StyleInfoTitle'
 
 // essa função é responsável pelas informaçõoes de erros a serem exibidas e loading (carregando...)
 function InfoTitle({ loading, error, products }) {
