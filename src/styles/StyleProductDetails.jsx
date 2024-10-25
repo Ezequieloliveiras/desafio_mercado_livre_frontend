@@ -40,7 +40,7 @@ const StyledCard = styled(Card)`
     padding: 20px;
      @media (max-width: 768px) {
       height: auto;
-      width: 350px;
+      width: 300px;
        margin: 10px 0px;
     }
 }
