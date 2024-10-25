@@ -68,7 +68,7 @@ function ProductDetail() {
                 <StyledBox>
                     <ImageContainer>
                         <StyledTypographyTitle>{base.title || 'Título não disponível'}</StyledTypographyTitle>
-                        <Box sx={{ position: 'relative', width: '100%', height: 'auto' }}>
+                        <Box sx={{ position: 'relative', width: '100%', height: 'auto', margin:'10px 0px' }}>
                             <Carousel
                                 sx={{
                                     width: '100%',
