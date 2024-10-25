@@ -3,7 +3,7 @@ import { Box, Card,Typography } from '@mui/material'
 
 const Container = styled(Box)`
 && {
-    width: 100%;
+    width: auto;
     height: auto;
     background: rgba(0, 0, 0, 0.1);
     display: flex;
@@ -18,7 +18,7 @@ const StyledBox = styled(Box)`
     display: flex;
     height: auto;
     flex-direction: column;
-    
+
     @media (min-width: 768px) {
       flex-direction: row;
     }
@@ -34,7 +34,7 @@ const StyledLink = styled.a`
 
 const StyledCard = styled(Card)`
 && {
-    width: auto;
+    max-width: 1200px;
     height: auto;
     margin: 20px auto 0;
     padding: 20px;

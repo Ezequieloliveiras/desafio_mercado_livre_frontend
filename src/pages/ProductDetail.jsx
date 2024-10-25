@@ -18,7 +18,7 @@ import Description from '../components/Description'
 
 function Item({ image, title }) {
     return (
-        <Paper elevation={3} style={{ textAlign: 'center', height: 'auto', minHeight: '300px' }}>
+        <Paper elevation={3} style={{ textAlign: 'center', height: 'auto'}}>
             <img
                 src={image}
                 alt={title}
