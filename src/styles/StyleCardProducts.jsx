@@ -18,14 +18,14 @@ const StyledCard = styled(Card)`
   width: 100%;
   cursor: pointer;
 `
-
 const StyledCardMedia = styled.img`
-  width: auto;
+  width: 100%;
   height: 300px;
-  object-fit: cover;   
+  object-fit: contain;   
   display: block;
   margin: 0 auto;
-`
+`;
+
 
 
 const StyledCardContent = styled.div`
