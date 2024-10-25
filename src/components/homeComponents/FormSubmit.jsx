@@ -48,7 +48,7 @@ function Form({
                     />
                 </Grid2>
 
-                <Grid2 xs={12} md={4} maxWidth="210px" minWidth="210px"  sx={{backgroundColor:'#fff'}}>
+                <Grid2 xs={12} md={4} maxWidth="200px" minWidth="200px"  sx={{backgroundColor:'#fff'}}>
                     <FormControl fullWidth variant="outlined">
                         <InputLabel>Condição</InputLabel>
                         <Select
