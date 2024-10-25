@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { searchProducts } from '../api/api.js'
 
-import FormSubmit from '../components/homeItems/FormSubmit.jsx'
-import InfoTitle from '../components/homeItems/InfoTitle.jsx'
-import CardProducts from '../components/homeItems/CardProducts.jsx'
+import FormSubmit from '../components/homeComponents/FormSubmit.jsx'
+import InfoTitle from '../components/homeComponents/InfoTitle.jsx'
+import CardProducts from '../components/homeComponents/CardProducts.jsx'
 
 // componente Pai que renderiza os componentes filhos na página inicial
 function App() {

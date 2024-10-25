@@ -54,7 +54,7 @@ const ProductGrid = ({ products }) => {
                     <Grid2 xs={12} sm={6} md={4} key={product.id}
                     sx={{
                         width: {
-                          xs: "400px",  // Estilo para telas menores que 600px
+                          xs: "350px",  // Estilo para telas menores que 600px
                           sm: "300px",  // Estilo para telas entre 600px e 960px
                           md: "300px",  // Estilo para telas entre 960px e 1280px
                         }
