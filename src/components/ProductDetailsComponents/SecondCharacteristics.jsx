@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { StyledTypography, StyledBox } from '../styles/StyleSecondCharacteristics'
+import { StyledTypography, StyledBox } from '../../styles/StyleSecondCharacteristics'
 
 function SecondCharacteristics() {
     const location = useLocation()

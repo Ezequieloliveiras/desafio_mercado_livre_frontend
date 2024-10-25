@@ -9,12 +9,13 @@ import {
     ImageContainer,
     StyledTypographyTitle
 } from '../styles/StyleProductDetails'
+
 import { Paper, Box } from '@mui/material'
 import Carousel from 'react-material-ui-carousel'
 
-import PrimaryCharacteristics from '../components/PrimaryCharacteristics'
-import SecondCharacteristics from '../components/SecondCharacteristics'
-import Description from '../components/Description'
+import PrimaryCharacteristics from '../components/ProductDetailsComponents/PrimaryCharacteristics'
+import SecondCharacteristics from '../components/ProductDetailsComponents/SecondCharacteristics'
+import Description from '../components/ProductDetailsComponents/Description'
 
 function Item({ image, title }) {
     return (
@@ -38,33 +39,26 @@ function ProductDetail() {
     const location = useLocation()
     const { product } = location.state || {}
     const [base, setBase] = useState({})
-    const [loading, setLoading] = useState(true) // Estado de carregamento
 
     const imagesProduct = base?.pictures || []
 
     useEffect(() => {
         const fetchDescription = async () => {
             try {
-                if (product?.id) { // Verifica se o produto e o ID estão disponíveis
+                if (product?.id) {
                     const response = await axios.get(`https://api.mercadolibre.com/items/${product.id}`)
                     setBase(response.data)
                 }
             } catch (error) {
                 console.error('Erro ao buscar a descrição do produto:', error)
-            } finally {
-                setLoading(false) // Define como carregado independentemente do sucesso ou falha
-            }
+            } 
         }
 
         fetchDescription()
     }, [product])
 
-    if (loading) {
-        return <div>Carregando...</div> // Mensagem enquanto os dados estão sendo carregados
-    }
-
     if (!product) {
-        return <div>Produto não encontrado.</div> // Mensagem se o produto não estiver disponível
+        return <div>Produto não encontrado.</div> 
     }
 
     return (
@@ -73,12 +67,12 @@ function ProductDetail() {
             <StyledCard>
                 <StyledBox>
                     <ImageContainer>
-                        <StyledTypographyTitle>{base.title || 'Título não disponível'}</StyledTypographyTitle> {/* Usando base.title */}
+                        <StyledTypographyTitle>{base.title || 'Título não disponível'}</StyledTypographyTitle>
                         <Box sx={{ position: 'relative', width: '100%', height: 'auto' }}>
                             <Carousel
                                 sx={{
                                     width: '100%',
-                                    height: 'auto', // Altura automática após carregado
+                                    height: 'auto',
                                 }}
                                 indicators={true} // Exibe os indicadores
                                 navButtonsAlwaysVisible={false}
@@ -98,7 +92,6 @@ function ProductDetail() {
                                 ))}
                             </Carousel>
                         </Box>
-
                     </ImageContainer>
                     <PrimaryCharacteristics />
                 </StyledBox>

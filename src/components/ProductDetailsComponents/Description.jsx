@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { StyledTypography, } from '../styles/StyleDescription'
+import { StyledTypography, } from '../../styles/StyleDescription'
 
 function Description() {
     const location = useLocation()
