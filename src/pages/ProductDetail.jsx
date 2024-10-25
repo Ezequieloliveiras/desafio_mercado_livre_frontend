@@ -24,10 +24,10 @@ function Item({ image, title }) {
                 alt={title}
                 style={{
                     width: '100%',           // Ajusta a largura da imagem ao container
-                    height: '400px',           // Mantém a proporção original da imagem
-                    maxHeight: '80vh',        // Altura máxima de 80% da viewport
-                    objectFit: 'contain',     // Garante que a imagem seja ajustada sem cortar
-                    maxWidth: '100%',         // Evita que a imagem ultrapasse a largura da tela
+                    height: '400px',        // Mantém a proporção original da imagem
+                    maxHeight: '80vh',      // Altura máxima de 80% da viewport
+                    objectFit: 'contain',   // Garante que a imagem seja ajustada sem cortar
+                    maxWidth: '100%',       // Evita que a imagem ultrapasse a largura da tela
                 }}
             />
         </Paper>
@@ -37,7 +37,7 @@ function Item({ image, title }) {
 function ProductDetail() {
     const location = useLocation()
     const { product } = location.state || {}
-    const [base, setBase] = useState('')
+    const [base, setBase] = useState({})
     const [loading, setLoading] = useState(true) // Estado de carregamento
 
     const imagesProduct = base?.pictures || []
@@ -45,19 +45,27 @@ function ProductDetail() {
     useEffect(() => {
         const fetchDescription = async () => {
             try {
-                const baseUrl = await axios.get(`https://api.mercadolibre.com/items/${product.id}`)
-                setBase(baseUrl.data)
-                setLoading(false) // Define como carregado
+                if (product?.id) { // Verifica se o produto e o ID estão disponíveis
+                    const response = await axios.get(`https://api.mercadolibre.com/items/${product.id}`)
+                    setBase(response.data)
+                }
             } catch (error) {
                 console.error('Erro ao buscar a descrição do produto:', error)
-                setLoading(false)
+            } finally {
+                setLoading(false) // Define como carregado independentemente do sucesso ou falha
             }
         }
 
-        if (product?.id) {
-            fetchDescription()
-        }
+        fetchDescription()
     }, [product])
+
+    if (loading) {
+        return <div>Carregando...</div> // Mensagem enquanto os dados estão sendo carregados
+    }
+
+    if (!product) {
+        return <div>Produto não encontrado.</div> // Mensagem se o produto não estiver disponível
+    }
 
     return (
         <Container>
@@ -65,18 +73,18 @@ function ProductDetail() {
             <StyledCard>
                 <StyledBox>
                     <ImageContainer>
-                        <StyledTypographyTitle>{product.title}</StyledTypographyTitle>
+                        <StyledTypographyTitle>{base.title || 'Título não disponível'}</StyledTypographyTitle> {/* Usando base.title */}
                         <Carousel
                             sx={{
                                 width: '100%',
-                                height: loading ? '300px' : 'auto', // Altura mínima enquanto carrega
+                                height: 'auto', // Altura automática após carregado
                             }}
                             indicators={false} // Remove os indicadores
                             navButtonsAlwaysVisible={true} // Botões de navegação sempre visíveis
                             autoPlay={false} // Desativa reprodução automática
                         >
                             {imagesProduct.map((img, index) => (
-                                <Item key={index} image={img.url} title={product.title} />
+                                <Item key={index} image={img.url} title={base.title || 'Imagem do Produto'} />
                             ))}
                         </Carousel>
                     </ImageContainer>
