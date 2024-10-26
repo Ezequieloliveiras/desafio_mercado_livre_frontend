@@ -34,7 +34,7 @@ const searchProducts = async (termoPesquisado, precoMinimo, precoMaximo, condica
 
 const fetchProductDetails = async (productId) => {
   try {
-    const response = await axios.get(`https://desafio-mercado-livre-backend.onrender.com/${productId}`)
+    const response = await axios.get(`https://desafio-mercado-livre-backend.onrender.com/api/products/${productId}`)
     return response.data
   } catch (error) {
     throw new Error('Erro ao buscar os detalhes do produto: ' + error.message)
@@ -43,7 +43,7 @@ const fetchProductDetails = async (productId) => {
 
 const fetchProductDescription = async (productId) => {
   try {
-    const response = await axios.get(`https://desafio-mercado-livre-backend.onrender.com/${productId}/description`)
+    const response = await axios.get(`https://desafio-mercado-livre-backend.onrender.com/api/products/${productId}/description`)
     return response.data.description
   } catch (error) {
     throw new Error('Erro ao buscar a descrição do produto: ' + error.message)
