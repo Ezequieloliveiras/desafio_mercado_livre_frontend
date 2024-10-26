@@ -1,16 +1,14 @@
 import {
-    Grid2,
     TextField,
-    Button,
     MenuItem,
     FormControl,
     InputLabel,
     Select,
-} from '@mui/material'
+} from '@mui/material';
 
-import { StyledBox } from '../../styles/StyleForm'
+import { StyledBox, StyledGridContainer, StyledGridItem, StyledButton } from '../../styles/StyleForm';
 
-// formulario de preechimento da pesquisa na pagina inicial
+// Formulario de preechimento da pesquisa na pagina inicial
 function Form({
     termoPesquisado,
     setTermoPesquisado,
@@ -24,20 +22,8 @@ function Form({
 }) {
     return (
         <StyledBox>
-            <Grid2
-                container
-                spacing={3}
-                alignItems="center"
-                padding={2}
-                sx={{
-                    flexDirection: {
-                        xs: 'column',
-                        sm: 'row',    // Aplica 'row' a partir de telas pequenas (tablet e acima)
-                    },
-                }}
-            >
-
-                <Grid2 xs={12} md={4} sx={{backgroundColor:'#fff', width:"200px" }}>
+            <StyledGridContainer container spacing={3}>
+                <StyledGridItem xs={12} md={4}>
                     <TextField
                         label="Termo de pesquisa"
                         value={termoPesquisado}
@@ -46,9 +32,9 @@ function Form({
                         variant="outlined"
                         required
                     />
-                </Grid2>
+                </StyledGridItem>
 
-                <Grid2 xs={12} md={4}  sx={{backgroundColor:'#fff', width:"200px" }}>
+                <StyledGridItem xs={12} md={4}>
                     <FormControl fullWidth variant="outlined">
                         <InputLabel>Condição</InputLabel>
                         <Select
@@ -63,9 +49,9 @@ function Form({
                             <MenuItem value="not_specified">Não especificado</MenuItem>
                         </Select>
                     </FormControl>
-                </Grid2>
+                </StyledGridItem>
 
-                <Grid2 xs={12} md={3} sx={{backgroundColor:'#fff', width:"200px" }}>
+                <StyledGridItem xs={12} md={3}>
                     <TextField
                         label="Preço Mínimo"
                         type="number"
@@ -74,9 +60,9 @@ function Form({
                         fullWidth
                         variant="outlined"
                     />
-                </Grid2>
+                </StyledGridItem>
 
-                <Grid2 xs={12} md={3} sx={{backgroundColor:'#fff', width:"200px" }}>
+                <StyledGridItem xs={12} md={3}>
                     <TextField
                         label="Preço Máximo"
                         type="number"
@@ -85,21 +71,21 @@ function Form({
                         fullWidth
                         variant="outlined"
                     />
-                </Grid2>
+                </StyledGridItem>
 
-                <Grid2 xs={12} md={3}>
-                    <Button
+                <StyledGridItem xs={12} md={3}>
+                    <StyledButton
                         variant="contained"
                         color="primary"
-                        fullWidth
-                        type="submit" onClick={handleSearch}>
+                        type="submit"
+                        onClick={handleSearch}
+                    >
                         Buscar
-                    </Button>
-                </Grid2>
-
-            </Grid2>
+                    </StyledButton>
+                </StyledGridItem>
+            </StyledGridContainer>
         </StyledBox>
-    )
+    );
 }
 
-export default Form
+export default Form;

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { searchProducts } from '../api/api.js'
+import { StyledContainer } from '../styles/StyleHomePage.jsx'
 
 import FormSubmit from '../components/homeComponents/FormSubmit.jsx'
 import InfoTitle from '../components/homeComponents/InfoTitle.jsx'
@@ -49,8 +50,7 @@ function App() {
         alignItems: 'center',
         flexDirection: 'column',
       }}>
-      <div style={{ backgroundColor: 'yellow', width: '100%', display: 'flex' }}>
-
+      <StyledContainer>
         <FormSubmit
           handleSearch={handleSearch}
           setTermoPesquisado={setTermoPesquisado}
@@ -59,8 +59,8 @@ function App() {
           setCondicao={setCondicao}
           condicao={condicao}
         />
+      </StyledContainer>
 
-      </div>
 
       <InfoTitle
         loading={loading}

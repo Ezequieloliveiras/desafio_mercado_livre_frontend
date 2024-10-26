@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Box, Card,Typography } from '@mui/material'
+import Carousel from "react-material-ui-carousel";
 
 const Container = styled(Box)`
 && {
@@ -46,6 +47,24 @@ const StyledCard = styled(Card)`
 }
 `;
 
+const StyledBoxContent = styled(Box)`
+&& {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+   
+}
+`;
+
+const StyledCarousel = styled(Carousel)`
+&& {
+  width: 100%,
+  height: auto,
+}
+`;
+
+
 const ImageContainer = styled(Box)`
   && {
     width: 50%;
@@ -72,6 +91,8 @@ export {
   StyledBox,
   StyledLink,
   StyledCard,
+  StyledBoxContent,
+  StyledCarousel,
   ImageContainer,
   StyledTypographyTitle
 }

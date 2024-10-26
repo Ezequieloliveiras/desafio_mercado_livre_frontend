@@ -6,12 +6,13 @@ import {
     StyledBox,
     StyledLink,
     StyledCard,
+    StyledCarousel,
     ImageContainer,
-    StyledTypographyTitle
+    StyledTypographyTitle,
+    StyledBoxContent
 } from '../styles/StyleProductDetails'
 
-import { Paper, Box } from '@mui/material'
-import Carousel from 'react-material-ui-carousel'
+import { Paper } from '@mui/material'
 
 import PrimaryCharacteristics from '../components/ProductDetailsComponents/PrimaryCharacteristics'
 import SecondCharacteristics from '../components/ProductDetailsComponents/SecondCharacteristics'
@@ -68,30 +69,26 @@ function ProductDetail() {
                 <StyledBox>
                     <ImageContainer>
                         <StyledTypographyTitle>{base.title || 'Título não disponível'}</StyledTypographyTitle>
-                        <Box sx={{ position: 'relative', width: '100%', height: 'auto', marginBottom:'50px'}}>
-                            <Carousel
-                                sx={{
-                                    width: '100%',
-                                    height: 'auto',
-                                }}
-                                indicators={true} // Exibe os indicadores
+                        <StyledBoxContent>
+                            <StyledCarousel
+                                indicators={true}
                                 navButtonsAlwaysVisible={false}
-                                autoPlay={false} // Desativa reprodução automática
+                                autoPlay={false}
                                 indicatorContainerProps={{
                                     sx: {
                                         position: 'absolute',
                                         bottom: '10px', 
                                         left: '50%',
                                         transform: 'translateX(-50%)', // Centraliza os indicadores
-                                        zIndex: 10, // fica em cima da imagem
+                                        zIndex: 10,
                                     }
                                 }}
                             >
                                 {imagesProduct.map((img, index) => (
                                     <Item key={index} image={img.url} title={base.title || 'Imagem do Produto'} />
                                 ))}
-                            </Carousel>
-                        </Box>
+                            </StyledCarousel>
+                        </StyledBoxContent>
                     </ImageContainer>
                     <PrimaryCharacteristics />
                 </StyledBox>

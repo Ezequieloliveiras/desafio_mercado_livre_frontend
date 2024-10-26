@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { StyledTypography, StyledBox } from '../../styles/StyleSecondCharacteristics'
+import { StyledTypography, StyledBox, ExpandableTypography } from '../../styles/StyleSecondCharacteristics'
 
 function SecondCharacteristics() {
     const location = useLocation()
@@ -36,9 +36,9 @@ function SecondCharacteristics() {
             <Typography variant='h6' marginBottom="10px">Todas as características</Typography>
             <Box
                 sx={{
-                    maxHeight: expandedAttributes ? 'none' : '60px', // Altura controlada
-                    opacity: expandedAttributes ? 1 : 0.5, // Opacidade
-                    transition: 'max-height 0.5s ease-in-out, opacity 0.5s ease-in-out', // Transição suave
+                    maxHeight: expandedAttributes ? 'none' : '60px',
+                    opacity: expandedAttributes ? 1 : 0.5,
+                    transition: 'max-height 0.5s ease-in-out, opacity 0.5s ease-in-out',
                     overflow: 'hidden', // Evita que o texto ultrapasse o contêiner
                 }}
             >
@@ -52,21 +52,10 @@ function SecondCharacteristics() {
                     <StyledTypography>Nenhum atributo encontrado.</StyledTypography>
                 )}
             </Box>
-            <Typography
-                onClick={toggleExpandAttributes}
-                sx={{
-                    mt: 2,
-                    color: '#3483fa',
-                    cursor: 'pointer',
-                    fontSize: '15px',
-                    textDecoration: 'none',
-                    '&:hover': {
-                        color: '#1c54b2',
-                    },
-                }}
-            >
+            <ExpandableTypography onClick={toggleExpandAttributes}>
                 {expandedAttributes ? 'Ver menos' : 'Ver mais'}
-            </Typography>
+            </ExpandableTypography>
+
         </StyledBox>
     )
 }

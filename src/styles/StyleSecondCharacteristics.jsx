@@ -17,7 +17,20 @@ const StyledTypography = styled(Typography)`
 }
 `;
 
+const ExpandableTypography = styled(Typography)`
+  margin-top: 16px; /* Equivalent to mt: 2 */
+  color: #3483fa;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+
+  &:hover {
+    color: #1c54b2;
+  }
+`;
+
 export {
   StyledBox,
   StyledTypography,
+  ExpandableTypography
 }
