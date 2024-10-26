@@ -4,9 +4,14 @@ import {
     FormControl,
     InputLabel,
     Select,
-} from '@mui/material';
+} from '@mui/material'
 
-import { StyledBox, StyledGridContainer, StyledGridItem, StyledButton } from '../../styles/StyleForm';
+import {
+    StyledBox,
+    StyledGridContainer,
+    StyledGridItem,
+    StyledButton
+} from '../../styles/StyleForm'
 
 // Formulario de preechimento da pesquisa na pagina inicial
 function Form({
@@ -85,7 +90,7 @@ function Form({
                 </StyledGridItem>
             </StyledGridContainer>
         </StyledBox>
-    );
+    )
 }
 
-export default Form;
+export default Form

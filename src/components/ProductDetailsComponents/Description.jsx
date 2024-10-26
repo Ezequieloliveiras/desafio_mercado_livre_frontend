@@ -1,7 +1,8 @@
-import axios from 'axios'
 import { Box, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+
+import { fetchProductDescription } from '../../api/api'
 
 import { StyledTypography, } from '../../styles/StyleDescription'
 
@@ -14,8 +15,9 @@ function Description() {
     useEffect(() => {
         const fetchDescription = async () => {
             try {
-                const resultDescription = await axios.get(`https://api.mercadolibre.com/items/${product.id}/description`)
-                setDescription(resultDescription.data.plain_text)
+                const resultDescription = await fetchProductDescription(product.id)
+                setDescription(resultDescription)
+                
             } catch (error) {
                 console.error('Erro ao buscar a descrição do produto:', error)
             }

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import {
@@ -11,6 +10,9 @@ import {
     StyledTypographyTitle,
     StyledBoxContent
 } from '../styles/StyleProductDetails'
+
+import { fetchProductDetails } from '../api/api'
+
 
 import { Paper } from '@mui/material'
 
@@ -39,6 +41,7 @@ function Item({ image, title }) {
 function ProductDetail() {
     const location = useLocation()
     const { product } = location.state || {}
+
     const [base, setBase] = useState({})
 
     const imagesProduct = base?.pictures || []
@@ -47,12 +50,12 @@ function ProductDetail() {
         const fetchDescription = async () => {
             try {
                 if (product?.id) {
-                    const response = await axios.get(`https://api.mercadolibre.com/items/${product.id}`)
-                    setBase(response.data)
+                    const data = await fetchProductDetails(product.id) // Chama a função de busca
+                    setBase(data)
                 }
             } catch (error) {
                 console.error('Erro ao buscar a descrição do produto:', error)
-            } 
+            }
         }
 
         fetchDescription()

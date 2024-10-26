@@ -1,13 +1,15 @@
-import axios from 'axios'
 import { Box, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+
+import { fetchProductDetails } from '../../api/api'
 
 import { StyledTypography, StyledBox, ExpandableTypography } from '../../styles/StyleSecondCharacteristics'
 
 function SecondCharacteristics() {
     const location = useLocation()
     const { product } = location.state || {}
+    
     const [base, setBase] = useState('')
     const [expandedAttributes, setExpandedAttributes] = useState(false)
     const attributesProduct = base?.attributes
@@ -15,8 +17,8 @@ function SecondCharacteristics() {
     useEffect(() => {
         const fetchDescription = async () => {
             try {
-                const baseUrl = await axios.get(`https://api.mercadolibre.com/items/${product.id}`)
-                setBase(baseUrl.data)
+                const baseUrl = await fetchProductDetails(product.id)
+                setBase(baseUrl)
             } catch (error) {
                 console.error('Erro ao buscar a descrição do produto:', error)
             }

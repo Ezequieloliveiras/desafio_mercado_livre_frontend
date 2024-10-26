@@ -8,21 +8,23 @@ import {
     StyledCardContent,
     StyledGrid
 } from '../../styles/StyleCardProducts'
-import axios from 'axios'
+
+import { fetchProductDetails } from '../../api/api'
 
 const ProductGrid = ({ products }) => {
     const [base, setBase] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchImages = async () => {
             try {
                 const MLBS = await Promise.all(
                     products.map(async (product) => {
-                        const response = await axios.get(`https://api.mercadolibre.com/items/${product.id}`)
-                        return response.data
+                        const response = await fetchProductDetails(product.id)
+                        return response
                     })
                 )
-                setBase(MLBS) // Atualizando o estado com os dados dos produtos
+                setBase(MLBS)
             } catch (error) {
                 console.error('Erro ao buscar a descrição do produto:', error)
             }
@@ -31,7 +33,6 @@ const ProductGrid = ({ products }) => {
         fetchImages()
     }, [products])
 
-    const navigate = useNavigate()
 
     const handleProductClick = (product) => {
         navigate(`/product/${product.id}`, { state: { product } })
@@ -52,14 +53,14 @@ const ProductGrid = ({ products }) => {
                 {products.map((product, index) => (
 
                     <Grid2 xs={12} sm={6} md={4} key={product.id}
-                    sx={{
-                        width: {
-                          xs: "350px",  // Estilo para telas menores que 600px
-                          sm: "300px",  // Estilo para telas entre 600px e 960px
-                          md: "300px",  // Estilo para telas entre 960px e 1280px
-                        }
-                      }}
-                       
+                        sx={{
+                            width: {
+                                xs: "350px",  // Estilo para telas menores que 600px
+                                sm: "300px",  // Estilo para telas entre 600px e 960px
+                                md: "300px",  // Estilo para telas entre 960px e 1280px
+                            }
+                        }}
+
                     >
                         <StyledCard onClick={() => handleProductClick(product)} >
                             <StyledCardMedia
