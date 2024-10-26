@@ -11,15 +11,22 @@ function Description() {
     const { product } = location.state || {}
     const [expandedDescription, setExpandedDescription] = useState(false)
     const [description, setDescription] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
+
 
     useEffect(() => {
         const fetchDescription = async () => {
             try {
                 const resultDescription = await fetchProductDescription(product.id)
                 setDescription(resultDescription)
-                
+                setErrorMessage('')
             } catch (error) {
-                console.error('Erro ao buscar a descrição do produto:', error)
+
+                if (error.response && error.response.status === 500) {
+                    setErrorMessage(error.response.data) 
+                } else {
+                    setErrorMessage('Erro ao carregar a descrição do produto.')
+                }
             }
         }
 
@@ -43,8 +50,14 @@ function Description() {
                     overflow: 'hidden',
                 }}
             >
-                <StyledTypography>
-                    {description}
+              <StyledTypography>
+                    {description ? (
+                        <p>{description}</p>
+                    ) : errorMessage ? (
+                        <p style={{ color: 'red' }}>{errorMessage}</p> // Exibe a mensagem de erro como texto
+                    ) : (
+                        <p>Carregando descrição...</p>
+                    )}
                 </StyledTypography>
             </Box>
             <Typography

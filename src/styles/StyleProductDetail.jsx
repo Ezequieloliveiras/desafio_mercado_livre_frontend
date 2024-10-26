@@ -17,7 +17,7 @@ const Container = styled(Box)`
 const StyledBox = styled(Box)`
 && {
     display: flex;
-    height: auto;
+    height: autopx;
     flex-direction: column;
 
     @media (min-width: 768px) {
@@ -35,7 +35,7 @@ const StyledLink = styled.a`
 
 const StyledCard = styled(Card)`
 && {
-    max-width: 1200px;
+    width: 1200px;
     height: auto;
     margin: 20px auto 0;
     padding: 20px;
@@ -51,7 +51,7 @@ const StyledBoxContent = styled(Box)`
 && {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 400px;
   margin-bottom: 50px;
    
 }
@@ -60,7 +60,10 @@ const StyledBoxContent = styled(Box)`
 const StyledCarousel = styled(Carousel)`
 && {
   width: 100%,
-  height: auto,
+  height: 550px,
+  @media (max-width: 768px) {
+      height: auto;
+    }
 }
 `;
 

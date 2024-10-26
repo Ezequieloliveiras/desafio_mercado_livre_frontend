@@ -9,7 +9,7 @@ import {
     ImageContainer,
     StyledTypographyTitle,
     StyledBoxContent
-} from '../styles/StyleProductDetails'
+} from '../styles/StyleProductDetail'
 
 import { fetchProductDetails } from '../api/api'
 
@@ -22,7 +22,7 @@ import Description from '../components/ProductDetailsComponents/Description'
 
 function Item({ image, title }) {
     return (
-        <Paper elevation={3} style={{ textAlign: 'center', height: 'auto'}}>
+        <Paper elevation={3} style={{ textAlign: 'center', height: '100%', display:'flex', justifyContent:'center', alignItems:'center' }}>
             <img
                 src={image}
                 alt={title}
@@ -71,12 +71,17 @@ function ProductDetail() {
             <StyledCard>
                 <StyledBox>
                     <ImageContainer>
+                        <div style={{margin:'20px 0px 40px 0px'}}>
                         <StyledTypographyTitle>{base.title || 'Título não disponível'}</StyledTypographyTitle>
+
+                        </div>
                         <StyledBoxContent>
                             <StyledCarousel
                                 indicators={true}
                                 navButtonsAlwaysVisible={false}
                                 autoPlay={false}
+                                interval={0}
+                                animation="none" 
                                 indicatorContainerProps={{
                                     sx: {
                                         position: 'absolute',
